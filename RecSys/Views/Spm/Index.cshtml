@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Sequential Pattern Mining</h2>
+
+
+@*======================================================================================================*@
+@*=========================     Sequential Pattern Mining    ===========================================*@
+@*======================================================================================================*@
+    <form asp-action="FindSpm" method="post">
+        <div class="form-group row">
+            <label class="form-control-label col-md-2" for="Support">Input Data</label>
+            <div class="col-md-8">
+                @*<textarea id="inputData" name="inputData" class="form-control"  rows="10" cols="50"><AB(FG)CD>&#13;&#10<BGD>&#13;&#10<BFG(AB)>&#13;&#10<F(AB)CD>&#13;&#10<A(BC)GF(DE)>*@
+                <textarea id="inputData" name="inputData" class="form-control" rows="10" cols="50">A B F,G C D&#13;&#10B G D&#13;&#10B F G A,B&#13;&#10F A,B C D&#13;&#10A B,C G F D,E</textarea>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="form-control-label col-md-2" for="Support">Min Support (%)</label>
+            <div class="col-md-2">
+                <input id="support" name="support" type="number" class="form-control" min="0" max="100" step="1" value="25" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="form-control-label col-md-2" for="Confidence">Min Confidence (%)</label>
+            <div class="col-md-2">
+                <input id="confidence" name="confidence" type="number" class="form-control" min="0" max="100" step="1" value="0" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="form-control-label col-md-2" for="inputSuccess1">SPM Method</label>
+            <div class="col-md-5">
+                <select id="spmMethod" name="spmMethod" class="form-control">
+                    <option>GSP - Generalized sequential Pattern</option>
+                    <option>PrefixSpan - Prefix Projected Pattern Growth</option>
+                    <option>SPAM - Sequential PAttern Mining using A Bitmap Representation</option>
+                    <option>LAPIN-SPAM - LAst Position INduction Sequential PAttern Mining</option>
+                    <option>BIDE - BI-Directional Extension pattern closure checking</option>
+                </select>
+            </div>
+        </div>
+        <button id="SpmSubmit" type="submit" class="btn btn-primary">Analyze</button>
+    </form>
+
+    <div id="gridSequentialPatterns"></div>

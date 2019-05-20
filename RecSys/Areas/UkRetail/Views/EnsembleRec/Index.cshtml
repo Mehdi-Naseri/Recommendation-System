@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Ensemble evaluation</h2>
+
+<form asp-action="Recommendations" method="post">
+    <div class="form-group row">
+        <label class="form-control-label col-md-3" for="kvalue">Recommendation number</label>
+        <div class="col-md-1">
+            <input type="number" id="recommendationNumber" name="recommendationNumber" class="form-control" width="2" value="50">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-control-label col-md-3" for="kvalue">Test start date</label>
+        <div class="col-md-2">
+            <input type="date" id="startDate" name="startDate" class="form-control" width="2" value="2010-12-01">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-control-label col-md-3" for="kvalue">Test end date</label>
+        <div class="col-md-2">
+            <input type="date" id="endDate" name="endDate" class="form-control" width="2" value="2011-10-31">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="form-control-label col-md-3" for="kvalue">Purchase weight</label>
+        <div class="col-md-1">
+            <input type="number" id="purchaseWeight" name="purchaseWeight" class="form-control" value="70">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-control-label col-md-3" for="kvalue">Collaborative not purchased</label>
+        <div class="col-md-1">
+            <input type="number" id="collaborativeNotPurcasedWeight" name="collaborativeNotPurcasedWeight" class="form-control" value="5">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-control-label col-md-3" for="kvalue">SPM purchase weight</label>
+        <div class="col-md-1">
+            <input type="number" id="spmPurchasedWeight" name="spmPurchasedWeight" class="form-control" value="5">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-control-label col-md-3" for="kvalue">SPM not purchased weight</label>
+        <div class="col-md-1">
+            <input type="number" id="spmNotPurchasedWeight" name="spmNotPurchasedWeight" class="form-control" value="20">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-3"></div>
+        <button type="submit" class="btn btn-primary">Recommend</button>
+    </div>
+</form>
+

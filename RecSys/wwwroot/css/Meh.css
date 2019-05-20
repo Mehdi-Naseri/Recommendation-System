@@ -1,0 +1,25 @@
+﻿
+.navbar-inverse {
+    background-color: darkgreen;
+}
+
+.navbar .navbar-nav > li > a:hover {
+    color: #fff;
+    background-color: dimgray;
+}
+
+.navbar-inverse .dropdown-menu {
+    background-color: darkgreen;
+}
+
+.navbar .dropdown-menu > li > a,
+.navbar .dropdown-menu {
+    background-color: darkgreen;
+    color: #C8C8C8;
+}
+
+    .navbar .dropdown-menu > li > a:hover {
+        color: #fff;
+        background-color: dimgray;
+    }
+

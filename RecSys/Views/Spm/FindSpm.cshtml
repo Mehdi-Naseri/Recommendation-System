@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Sequential Patterns";
+}
+
+<h2>Sequential Patterns</h2>
+
+<div class="col-md-12">
+    <div class="col-md-6">
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Sequence</th>
+                    <th scope="col">Support</th>
+                    <th scope="col">Support (%)</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var itemSupport in Model)
+                {
+                <tr>
+                    <td>
+                        <text><</text>
+                        @{for (int j = 0; j < itemSupport.sequence.Count; j++)
+                            {
+                                List<string> itemset = itemSupport.sequence[j];
+                                if (itemset.Count > 1)
+                                {
+                                    <text> (</text>
+                                    for (int i = 0; i < itemset.Count - 1; i++)
+                                    {
+                                        @itemset[i]
+                                        <text> - </text>;
+                                    }
+                                    @itemset[itemset.Count - 1]
+                                    <text>)</text>
+                                }
+                                else if (j != itemSupport.sequence.Count - 1)
+                                {
+                                    @itemset[0] <text> - </text>;
+                                }
+                                else
+                                {
+                                    @itemset[0]
+                                }
+                            }
+                        }
+                        <text>></text>
+                    </td>
+                    <td>@itemSupport.support</td>
+                    <td>@itemSupport.supportPercentage</td>
+                </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>
