@@ -685,5 +685,167 @@ namespace RecSys.Functions
             //return recomendations;
             return recommendations;
         }
+
+
+        public List<RecommendedItems> RecommendOptimizedHope(
+          IList<RecommendedItems> recommendedItemsesCf,
+          IList<RecommendedItems> recommendedItemsesSpm,
+          float cfWeight,
+          float spmWeight,
+          int recommendationNumber)
+        {
+            IList<RecommendedItems> ensembleRecomendations = new List<RecommendedItems>();
+            List<int> users = recommendedItemsesCf.Select(a => a.User).Union(recommendedItemsesSpm.Select(a => a.User)).ToList();
+            //Add purchase recommendations
+            if (cfWeight > 0)
+            {
+                foreach (RecommendedItems recommendedItems in recommendedItemsesCf)
+                {
+                    RecommendedItems recommendedItemsWeighted = new RecommendedItems();
+                    recommendedItemsWeighted.User = recommendedItems.User;
+                    recommendedItemsWeighted.Items = new List<ItemRating>();
+                    foreach (ItemRating itemRating in recommendedItems.Items)
+                    {
+                        recommendedItemsWeighted.Items.Add(new ItemRating(itemRating.ItemId,
+                            itemRating.Rating * cfWeight));
+                    }
+
+                    ensembleRecomendations.Add(recommendedItemsWeighted);
+                }
+            }
+
+            //Add collaborative non purchased recommended
+            if (spmWeight > 0)
+            {
+                foreach (RecommendedItems recommendedItems in recommendedItemsesSpm)
+                {
+                    foreach (ItemRating itemRating in recommendedItems.Items)
+                    {
+                        if (ensembleRecomendations.Any(a => a.User == recommendedItems.User))
+                        {
+                            ensembleRecomendations.First(a => a.User == recommendedItems.User).Items.Add(
+                                new ItemRating(itemRating.ItemId, itemRating.Rating * spmWeight));
+                        }
+                        else
+                        {
+                            RecommendedItems recommendedItemsWeighted = new RecommendedItems();
+                            recommendedItemsWeighted.User = recommendedItems.User;
+                            recommendedItemsWeighted.Items = new List<ItemRating>();
+                            recommendedItemsWeighted.Items.Add(new ItemRating(itemRating.ItemId,
+                                itemRating.Rating * spmWeight));
+                            ensembleRecomendations.Add(recommendedItemsWeighted);
+                        }
+                    }
+                }
+            }
+            ////Add SPM-Purchased to Ensemble recomendations
+            //if (spmPurchasedWeight > 0)
+            //{
+            //    foreach (RecommendedItems recommendedItems in recommendedItemsesSpmPurchased)
+            //    {
+            //        foreach (ItemRating itemRating in recommendedItems.Items)
+            //        {
+            //            if (ensembleRecomendations.Any(a => a.User == recommendedItems.User))
+            //            {
+            //                var rec = ensembleRecomendations.First(a => a.User == recommendedItems.User);
+            //                if (rec.Items.Any(a => a.ItemId == itemRating.ItemId))
+            //                {
+            //                    float spmRatingWeighted = itemRating.Rating * spmPurchasedWeight;
+            //                    ensembleRecomendations.First(a => a.User == recommendedItems.User).Items
+            //                        .First(i => i.ItemId == itemRating.ItemId).Rating += spmRatingWeighted;
+            //                }
+            //                else
+            //                {
+            //                    ensembleRecomendations.First(a => a.User == recommendedItems.User).Items.Add(
+            //                    new ItemRating(itemRating.ItemId, itemRating.Rating * spmPurchasedWeight));
+            //                }
+
+            //            }
+            //            else
+            //            {
+            //                RecommendedItems recommendedItemsWeighted = new RecommendedItems();
+            //                recommendedItemsWeighted.User = recommendedItems.User;
+            //                recommendedItemsWeighted.Items = new List<ItemRating>();
+            //                recommendedItemsWeighted.Items.Add(new ItemRating(itemRating.ItemId,
+            //                    itemRating.Rating * spmPurchasedWeight));
+            //                ensembleRecomendations.Add(recommendedItemsWeighted);
+            //            }
+            //        }
+            //    }
+            //}
+
+            ////Add SPM-Purchased to Ensemble recomendations
+            //if (spmNotPurchasedWeight > 0)
+            //{
+            //    foreach (RecommendedItems recommendedItems in recommendedItemsesSpmNotPurchased)
+            //    {
+            //        foreach (ItemRating itemRating in recommendedItems.Items)
+            //        {
+            //            if (ensembleRecomendations.Any(a => a.User == recommendedItems.User))
+            //            {
+            //                var rec = ensembleRecomendations.First(a => a.User == recommendedItems.User);
+            //                if (rec.Items.Any(a => a.ItemId == itemRating.ItemId))
+            //                {
+            //                    float spmRatingWeighted = itemRating.Rating * spmNotPurchasedWeight;
+            //                    ensembleRecomendations.First(a => a.User == recommendedItems.User).Items
+            //                        .First(i => i.ItemId == itemRating.ItemId).Rating += spmRatingWeighted;
+            //                }
+            //                else
+            //                {
+            //                    ensembleRecomendations.First(a => a.User == recommendedItems.User).Items.Add(
+            //                    new ItemRating(itemRating.ItemId, itemRating.Rating * spmNotPurchasedWeight));
+            //                }
+
+            //            }
+            //            else
+            //            {
+            //                RecommendedItems recommendedItemsWeighted = new RecommendedItems();
+            //                recommendedItemsWeighted.User = recommendedItems.User;
+            //                recommendedItemsWeighted.Items = new List<ItemRating>();
+            //                recommendedItemsWeighted.Items.Add(new ItemRating(itemRating.ItemId,
+            //                    itemRating.Rating * spmNotPurchasedWeight));
+            //                ensembleRecomendations.Add(recommendedItemsWeighted);
+            //            }
+            //        }
+            //    }
+            //}
+
+            /*************************************************************************************/
+            //  Step 5:   Recommend products
+            /*************************************************************************************/
+            List<RecommendedItems> recommendations = new List<RecommendedItems>();
+            foreach (int user in users)
+            {
+                if (ensembleRecomendations.FirstOrDefault(a => a.User == user) != null)
+                {
+                    IList<ItemRating> ItemRatings = ensembleRecomendations.FirstOrDefault(a => a.User == user).Items.OrderByDescending(a => a.Rating).ToList();
+
+                    RecommendedItems recommendation = new RecommendedItems() { };
+                    recommendation.User = user;
+                    recommendation.Items = new List<ItemRating>();
+
+
+                    int recommendationCount = recommendationNumber <= ItemRatings.Count()
+                        ? recommendationNumber
+                        : ItemRatings.Count();
+                    for (int i = 0; i < recommendationCount; i++)
+                    {
+                        if (ItemRatings[i] != null)
+                        {
+                            ItemRating itemRating = new ItemRating(ItemRatings[i].ItemId, ItemRatings[i].Rating);
+                            recommendation.Items.Add(itemRating);
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    recommendations.Add(recommendation);
+                }
+            }
+            Console.WriteLine("Step 3: " + DateTime.Now.TimeOfDay + " - Recommend products");
+            //return recomendations;
+            return recommendations;
+        }
     }
 }

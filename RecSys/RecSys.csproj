@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -11,38 +11,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\UkRetail\Data\" />
-    <Folder Include="Areas\UkRetail\Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="Areas\UkRetail\Views\EnsembleRec\Recommendations.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Areas\UkRetail\Views\SequentialNotPurchasedEvaluation\EvaluationResults.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Areas\UkRetail\Views\SequentialPurchasedEvaluation\EvaluationResults.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Areas\UkRetail\Views\SequentialEvaluation\EvaluationResults.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Areas\UkRetail\Views\SequentialRecNotPurchased\Recommendations.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Areas\UkRetail\Views\SequentialRecPurchased\Recommendations.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Areas\UkRetail\Views\SequentialRec\Recommendations.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Areas\UkRetail\Views\_ViewImports.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Areas\UkRetail\Views\_ViewStart.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
+    <Folder Include="Areas\UkRec\Data\" />
+    <Folder Include="Areas\UkRec\Models\" />
+    <Folder Include="Areas\UkTools\Data\" />
+    <Folder Include="Areas\UkTools\Models\" />
+    <Folder Include="Areas\UkTraining\Data\" />
+    <Folder Include="Areas\UkTraining\Models\" />
   </ItemGroup>
 
 </Project>

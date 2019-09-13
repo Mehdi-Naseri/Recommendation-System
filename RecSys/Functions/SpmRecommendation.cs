@@ -18,6 +18,7 @@ namespace RecSys.Functions
             /*************************************************************************************/
             List<string> preRule = sequenceSupports2Items.SelectMany(a => a.sequence[0]).ToList();
             List<UserItemRating> userItemRatingMatrix = new List<UserItemRating>();
+            //Parallel.ForEach(userSequences, new ParallelOptions { MaxDegreeOfParallelism = Environment.ProcessorCount - 1 }, userSequence =>
             foreach (UserSequence userSequence in userSequences)
             {
                 List<string> userPurchasedItems = userSequence.Sequence.SelectMany(a => a).Distinct().ToList();

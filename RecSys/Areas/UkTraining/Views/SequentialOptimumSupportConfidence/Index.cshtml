@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Ensemble weights evaluation</h2>
+
+<form asp-action="OptimumSupportConfidence" method="post">
+    <div class="form-group row">
+        <label class="form-control-label col-md-2" for="supportPercentage">Support(%) From</label>
+        <div class="col-md-2">
+            <input id="supportFrom" name="supportFrom" type="number" class="form-control" min="0" max="100" step="0.5" value="0.5" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-control-label col-md-2" for="supportPercentage">Support(%) To</label>
+        <div class="col-md-2">
+            <input id="supportTo" name="supportTo" type="number" class="form-control" min="0" max="100" step="0.5" value="10" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-control-label col-md-2" for="supportPercentage">Support(%) Steps</label>
+        <div class="col-md-2">
+            <input id="supportSteps" name="supportSteps" type="number" class="form-control" min="0" max="10" step="0.05" value="0.5" />
+        </div>
+    </div>
+    <br />
+    <div class="form-group row">
+        <label class="form-control-label col-md-2" for="supportPercentage">Confidence(%) From</label>
+        <div class="col-md-2">
+            <input id="ConfidenceFrom" name="ConfidenceFrom" type="number" class="form-control" min="0" max="100" step="10" value="0" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-control-label col-md-2" for="confidenceTo">Confidence(%) To</label>
+        <div class="col-md-2">
+            <input id="confidenceTo" name="confidenceTo" type="number" class="form-control" min="0" max="100" step="10" value="100" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-control-label col-md-2" for="supportPercentage">Confidence(%) Steps</label>
+        <div class="col-md-2">
+            <input id="confidenceSteps" name="confidenceSteps" type="number" class="form-control" min="0" max="100" step="0.5" value="10" />
+        </div>
+    </div>
+    <br />
+
+    <div class="form-group row">
+        <label class="form-control-label col-md-2" for="trainStartDate">Train start date</label>
+        <div class="col-md-2">
+            <input type="date" id="trainStartDate" name="trainStartDate" class="form-control" width="2" value="2010-12-01">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-control-label col-md-2" for="trainEndDate">Train end date</label>
+        <div class="col-md-2">
+            <input type="date" id="trainEndDate" name="trainEndDate" class="form-control" width="2" value="2011-09-30">
+        </div>
+    </div>
+    <br />
+    <div class="form-group row">
+        <label class="form-control-label col-md-2" for="testStartDate">Test start date</label>
+        <div class="col-md-2">
+            <input type="date" id="testStartDate" name="testStartDate" class="form-control" width="2" value="2011-10-01">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-control-label col-md-2" for="testEndDate">Test end date</label>
+        <div class="col-md-2">
+            <input type="date" id="testEndDate" name="testEndDate" class="form-control" width="2" value="2011-10-31">
+        </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Calculate Accuracy</button>
+</form>
+

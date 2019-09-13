@@ -1,0 +1,37 @@
+﻿@model List<SupportConfidenceAccuracyNrec>
+@{
+    ViewData["Title"] = "EvaluationResults";
+}
+
+<h2>Evaluation results</h2>
+
+<div class="col-md-12">
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Support</th>
+                <th scope="col">Confidence</th>
+                <th scope="col">F1Score 5</th>
+                <th scope="col">F1Score 10</th>
+                <th scope="col">F1Score 20</th>
+                <th scope="col">F1Score 50</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @{
+                foreach (var SupportConfidenceAccuracyNrec in Model.OrderByDescending(a => a.AccuracyNrec.F120))
+                {
+                        <tr>
+                            <td>@SupportConfidenceAccuracyNrec.Support</td>
+                            <td>@SupportConfidenceAccuracyNrec.Confidence</td>
+                            <td>@SupportConfidenceAccuracyNrec.AccuracyNrec.F15</td>
+                            <td>@SupportConfidenceAccuracyNrec.AccuracyNrec.F110</td>
+                            <td>@SupportConfidenceAccuracyNrec.AccuracyNrec.F120</td>
+                            <td>@SupportConfidenceAccuracyNrec.AccuracyNrec.F150</td>
+                        </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

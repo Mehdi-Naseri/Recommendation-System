@@ -8,8 +8,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RecSys.Models
 {
-    //[Table("FrequentSequentialPattern2items-10Months")]
-    [Table("FrequentSequentialPattern-11Month")]
+    [Table("FrequentSequentialPattern2items")]
+    //[Table("FrequentSequentialPattern-11Month")]
+    //[Table("FrequentSequentialPattern")]
     public class FrequentSequentialPattern
     {
         [Key]
@@ -22,5 +23,8 @@ namespace RecSys.Models
 
         [Required]
         public int Support { get; set; }
+
+        [Required]
+        public bool Train { get; set; }
     }
 }

@@ -1,0 +1,43 @@
+﻿@model List<RecommendedItems>
+@{
+    ViewData["Title"] = "Recommendations";
+}
+
+<h2>HOPE recommendations</h2>
+
+<div class="col-md-12">
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+        <tr>
+            <th scope="col">User</th>
+            <th scope="col">Recomended Item</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @{ foreach (var recommendation in Model)
+           {
+               <tr>
+                   <td>@recommendation.User</td>
+                   <td>
+                       @*<text><</text>*@
+                       @{foreach (var item in recommendation.Items)
+                         {
+                             <text>(</text>
+                             @item.ItemId
+                             <text>,</text>
+                             @item.Rating
+                             <text>)</text>
+                             <text>   </text>
+                         }
+                                @*<text>></text>*@
+                       }
+                   </td>
+
+               </tr>
+           }
+        }
+        </tbody>
+    </table>
+</div>
+

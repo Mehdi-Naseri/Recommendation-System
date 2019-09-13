@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Hope evaluation</h2>
+
+<form asp-action="EvaluationResults" method="post">
+    <div class="form-group row">
+        <label class="form-control-label col-md-2" for="recommendationNumber">Recommendation number</label>
+        <div class="col-md-1">
+            <input type="number" id="recommendationNumber" name="recommendationNumber" class="form-control" width="2" value="50">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-control-label col-md-2" for="trainStartDate">Recommendation start date</label>
+        <div class="col-md-2">
+            <input type="date" id="trainStartDate" name="trainStartDate" class="form-control" width="2" value="2010-12-01">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-control-label col-md-2" for="trainEndDate">Recommendation end date</label>
+        <div class="col-md-2">
+            <input type="date" id="trainEndDate" name="trainEndDate" class="form-control" width="2" value="2011-10-31">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-control-label col-md-2" for="testStartDate">Test start date</label>
+        <div class="col-md-2">
+            <input type="date" id="testStartDate" name="testStartDate" class="form-control" width="2" value="2011-11-01">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-control-label col-md-2" for="testEndDate">Test end date</label>
+        <div class="col-md-2">
+            <input type="date" id="testEndDate" name="testEndDate" class="form-control" width="2" value="2011-11-30">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Calculate Accuracy</button>
+</form>
+

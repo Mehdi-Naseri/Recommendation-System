@@ -1,0 +1,56 @@
+﻿@model AccuracyNrec
+@{
+    ViewData["Title"] = "EvaluationResults";
+}
+
+<h2>Purchase history evaluation results</h2>
+
+<div class="col-md-12">
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Recommendations</th>
+            <th scope="col">Precision</th>
+            <th scope="col">Recall</th>
+            <th scope="col">F1 Score</th>
+            <th scope="col">Recall with frequency</th>
+            <th scope="col">F1 Score  with frequency</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>5</td>
+            <td>@Model.Precicion5</td>
+            <td>@Model.Recall5</td>
+            <td>@Model.F15</td>
+            <td>@Model.RecallwithFrequency5</td>
+            <td>@Model.F1withFrequency5</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>@Model.Precicion10</td>
+            <td>@Model.Recall10</td>
+            <td>@Model.F110</td>
+            <td>@Model.RecallwithFrequency10</td>
+            <td>@Model.F1withFrequency10</td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td>@Model.Precicion20</td>
+            <td>@Model.Recall20</td>
+            <td>@Model.F120</td>
+            <td>@Model.RecallwithFrequency20</td>
+            <td>@Model.F1withFrequency20</td>
+        </tr>
+        <tr>
+            <td>50</td>
+            <td>@Model.Precicion50</td>
+            <td>@Model.Recall50</td>
+            <td>@Model.F150</td>
+            <td>@Model.RecallwithFrequency50</td>
+            <td>@Model.F1withFrequency50</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

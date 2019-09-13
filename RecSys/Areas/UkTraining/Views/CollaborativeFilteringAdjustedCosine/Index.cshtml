@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Collaborative Filtering - Adjusted Cosine - Recomendation</h2>
+
+<form asp-action="Recommendations" method="post">
+    <div class="form-group row">
+        <label class="form-control-label col-md-2" for="kPercentage">Percentage of similar users</label>
+        <div class="col-md-1">
+            <input type="number" id="kPercentage" name="kPercentage" class="form-control" width="2" value="1" step="0.5">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-control-label col-md-2" for="recommendationNumber">Recommendation number</label>
+        <div class="col-md-1">
+            <input type="number" id="recommendationNumber" name="recommendationNumber" class="form-control" width="2" value="50">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-control-label col-md-2" for="startDate">Train start date</label>
+        <div class="col-md-2">
+            <input type="date" id="startDate" name="startDate" class="form-control" width="2" value="2010-12-01">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="form-control-label col-md-2" for="endDate">Train end date</label>
+        <div class="col-md-2">
+            <input type="date" id="endDate" name="endDate" class="form-control" width="2" value="2011-09-30">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Recommend</button>
+</form>
+

@@ -1,0 +1,120 @@
+﻿@model List<List<RecommendedItems>>
+
+@{
+    ViewData["Title"] = "Recommendations";
+}
+
+<h2>Collaborative Filtering -Adjusted Cosine - Recommendations</h2> 
+
+<div class="col-md-12">
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">User</th>
+                <th scope="col">Recomended Item</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @{ foreach (var recommendation in Model[0])
+                {
+                    <tr>
+                        <td>@recommendation.User</td>
+                        <td>
+                            @*<text><</text>*@
+                            @{foreach (var item in recommendation.Items)
+                                {
+                                    <text>(</text>
+                                    @item.ItemId
+                                    <text>,</text>
+                                    @item.Rating
+                                    <text>)</text>
+                                    <text>   </text>
+                                }
+                                @*<text>></text>*@
+                            }
+                        </td>
+
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<hr>
+<h2>Purchase frequency recommendations</h2>
+
+<div class="col-md-12">
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">User</th>
+                <th scope="col">Recomended Item</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @{ foreach (var recommendation in Model[1])
+                {
+                    <tr>
+                        <td>@recommendation.User</td>
+                        <td>
+                            @*<text><</text>*@
+                            @{foreach (var item in recommendation.Items)
+                                {
+                                    <text>(</text>
+                                    @item.ItemId
+                                    <text>,</text>
+                                    @item.Rating
+                                    <text>)</text>
+                                    <text>   </text>
+                                }
+                                @*<text>></text>*@
+                            }
+                        </td>
+
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<hr />
+<h2>Collaborative filtering - notpurchased recommendations</h2>
+<div class="col-md-12">
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">User</th>
+                <th scope="col">Recomended Item</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @{ foreach (var recommendation in Model[2])
+                {
+                    <tr>
+                        <td>@recommendation.User</td>
+                        <td>
+                            @*<text><</text>*@
+                            @{foreach (var item in recommendation.Items)
+                                {
+                                    <text>(</text>
+                                    @item.ItemId
+                                    <text>,</text>
+                                    @item.Rating
+                                    <text>)</text>
+                                    <text>   </text>
+                                }
+                                @*<text>></text>*@
+                            }
+                        </td>
+
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

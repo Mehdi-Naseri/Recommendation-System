@@ -38,32 +38,77 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
 
                     <li class="dropdown">
-                        <a href="" class="dropdown-toggle" data-toggle="dropdown">UK retail <span class="caret"></span></a>
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">Uk Training<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a asp-area="UkRetail" asp-controller="Dataset" asp-action="Index">Dataset</a></li>
-                            <li><a asp-area="UkRetail" asp-controller="SequentialPatterns" asp-action="Index">Sequential Patterns</a></li>
-                            <li><a asp-area="UkRetail" asp-controller="SequentialRec" asp-action="Index">SPM Recommendation</a></li>
+                            <li><a asp-area="UkTraining" asp-controller="SequentialPatterns" asp-action="Index">Sequential Patterns</a></li>
+                            <li><a asp-area="UkTraining" asp-controller="SequentialRec" asp-action="Index">SPM Recommendation</a></li>
+                            <li><a asp-area="UkTraining" asp-controller="SequentialRecPurchased" asp-action="Index">SPM Purchased Recommendation</a></li>
+                            <li><a asp-area="UkTraining" asp-controller="SequentialRecNotPurchased" asp-action="Index">SPM Not Purchased Recommendation</a></li>
+                            <li class="divider"></li>
+                            <li><a asp-area="UkTraining" asp-controller="CollaborativeFiltering" asp-action="Index">Collaborative Recommendation</a></li>
+                            <li><a asp-area="UkTraining" asp-controller="CollaborativeFilteringAdjustedCosine" asp-action="Index">Collaborative Adjusted Cosine Recommendation</a></li>
+                            <li class="divider"></li>
+                            <li><a asp-area="UkTraining" asp-controller="EnsembleRec" asp-action="Index">Ensemble Recommendation</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">UkTraining Evaluation<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a asp-area="UkTraining" asp-controller="SequentialEvaluation" asp-action="Index">SPM Evaluation</a></li>
+                            <li><a asp-area="UkTraining" asp-controller="SequentialPurchasedEvaluation" asp-action="Index">SPM Purchased Evaluation</a></li>
+                            <li><a asp-area="UkTraining" asp-controller="SequentialNotPurchasedEvaluation" asp-action="Index">SPM Not Purchased Evaluation</a></li>
+                            <li><a asp-area="UkTraining" asp-controller="SequentialOptimumSupportConfidence" asp-action="Index">SPM Optimum Support Confidence</a></li>
+                            <li class="divider"></li>
+                            <li><a asp-area="UkTraining" asp-controller="CollaborativeEvaluation" asp-action="Index">Collaborative Evaluation</a></li>
+                            <li><a asp-area="UkTraining" asp-controller="PurchaseHistoryEvaluation" asp-action="Index">Purchase History Evaluation</a></li>
+                            <li><a asp-area="UkTraining" asp-controller="CollaborativeNotPurchasedEvaluation" asp-action="Index">Collaborative Notpurchased Evaluation</a></li>
+                            <li class="divider"></li>
+                            <li><a asp-area="UkTraining" asp-controller="CollaborativeAdjustedCosineEvaluation" asp-action="Index">Collaborative Adjusted Cosine Evaluation</a></li>
+                            <li><a asp-area="UkTraining" asp-controller="PurchaseHistoryAdjustedCosineEvaluation" asp-action="Index">Purchase History Adjusted Cosine Evaluation</a></li>
+                            <li><a asp-area="UkTraining" asp-controller="CollaborativeNotPurchasedAdjustedCosineEvaluation" asp-action="Index">Collaborative Notpurchased Adjusted Cosine Evaluation</a></li>
+                            <li class="divider"></li>
+                            <li><a asp-area="UkTraining" asp-controller="EnsembleEvaluation" asp-action="Index">Ensemble Evaluation</a></li>
+                            <li><a asp-area="UkTraining" asp-controller="EnsembleWeightTesting" asp-action="Index">Ensemble Optimum Weight</a></li>
+                        </ul>
+                    </li>
 
 
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">Uk Recommendation<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a asp-area="UkRec" asp-controller="SequentialPatterns" asp-action="Index">Sequential Patterns</a></li>
+                            <li><a asp-area="UkRec" asp-controller="SequentialRec" asp-action="Index">SPM Recommendation</a></li>
+                            <li><a asp-area="UkRec" asp-controller="SequentialRecPurchased" asp-action="Index">SPM Purchased Recommendation</a></li>
+                            <li><a asp-area="UkRec" asp-controller="SequentialRecNotPurchased" asp-action="Index">SPM Not Purchased Recommendation</a></li>
+                            <li class="divider"></li>
+                            <li><a asp-area="UkRec" asp-controller="CollaborativeFiltering" asp-action="Index">Collaborative Recommendation</a></li>
+                            <li class="divider"></li>
+                            <li><a asp-area="UkRec" asp-controller="HopeRec" asp-action="Index">HOPE Recommendation</a></li>
+                            <li><a asp-area="UkRec" asp-controller="EnsembleRec" asp-action="Index">Ensemble Recommendation</a></li>
+                        </ul>
+                    </li>
 
-                            <li><a asp-area="UkRetail" asp-controller="SequentialRecPurchased" asp-action="Index">SPM Purchased Recommendation</a></li>
-                            <li><a asp-area="UkRetail" asp-controller="SequentialPurchasedEvaluation" asp-action="Index">SPM Purchased Evaluation</a></li>
-                            <li><a asp-area="UkRetail" asp-controller="SequentialRecNotPurchased" asp-action="Index">SPM Not Purchased Recommendation</a></li>
-                            <li><a asp-area="UkRetail" asp-controller="SequentialNotPurchasedEvaluation" asp-action="Index">SPM Not Purchased Evaluation</a></li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">UkRec Evaluation<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a asp-area="UkRec" asp-controller="SequentialEvaluation" asp-action="Index">SPM Evaluation</a></li>
+                            <li><a asp-area="UkRec" asp-controller="SequentialPurchasedEvaluation" asp-action="Index">SPM Purchased Evaluation</a></li>
+                            <li><a asp-area="UkRec" asp-controller="SequentialNotPurchasedEvaluation" asp-action="Index">SPM Not Purchased Evaluation</a></li>
+                            <li class="divider"></li>
+                            <li><a asp-area="UkRec" asp-controller="CollaborativeEvaluation" asp-action="Index">Collaborative Evaluation</a></li>
+                            <li><a asp-area="UkRec" asp-controller="PurchaseHistoryEvaluation" asp-action="Index">Purchase History Evaluation</a></li>
+                            <li><a asp-area="UkRec" asp-controller="CollaborativeNotPurchasedEvaluation" asp-action="Index">Collaborative Notpurchased Evaluation</a></li>
+                            <li class="divider"></li>
+                            <li><a asp-area="UkRec" asp-controller="HopeEvaluation" asp-action="Index">HOPE Evaluation</a></li>
+                            <li><a asp-area="UkRec" asp-controller="EnsembleEvaluation" asp-action="Index">Ensemble Evaluation</a></li>
+                            <li><a asp-area="UkRec" asp-controller="EnsembleWeightTesting" asp-action="Index">Ensemble Weight Testing</a></li>
+                        </ul>
+                    </li>
 
-
-
-                            <li><a asp-area="UkRetail" asp-controller="CollaborativeFiltering" asp-action="Index">Collaborative Recommendation</a></li>
-                            <li><a asp-area="UkRetail" asp-controller="CollaborativeEvaluation" asp-action="Index">Collaborative Evaluation</a></li>
-
-                            <li><a asp-area="UkRetail" asp-controller="CollaborativeNotPurchasedEvaluation" asp-action="Index">Collaborative Notpurchased Evaluation</a></li>
-                            <li><a asp-area="UkRetail" asp-controller="PurchaseHistoryEvaluation" asp-action="Index">Purchase History Evaluation</a></li>
-
-                            <li><a asp-area="UkRetail" asp-controller="EnsembleRec" asp-action="Index">Ensemble Recommendation</a></li>
-                            <li><a asp-area="UkRetail" asp-controller="EnsembleEvaluation" asp-action="Index">Ensemble Evaluation</a></li>
-                            <li><a asp-area="UkRetail" asp-controller="EnsembleWeightTesting" asp-action="Index">Ensemble Weight Testing</a></li>
-                            <li><a asp-area="UkRetail" asp-controller="ProductSimilarity" asp-action="Index">Smilarity</a></li>
-                            <li><a asp-area="UkRetail" asp-controller="ContentRecSys" asp-action="Index">Content-based Recommendation</a></li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">Uk Tools<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a asp-area="UkTools" asp-controller="Dataset" asp-action="Index">Dataset</a></li>
                         </ul>
                     </li>
 
